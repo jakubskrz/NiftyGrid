@@ -1,9 +1,10 @@
 <?php
 
-namespace NiftyGrid;
+namespace NiftyGrid\DataSource;
 
 use Nette,
-	DibiFluent;
+	DibiFluent,
+	NiftyGrid\FilterCondition;
 
 
 
