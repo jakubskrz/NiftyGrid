@@ -60,7 +60,7 @@
 		<th n:foreach="$subGrids as $subGrid" class="grid-filter-form"></th>
 		<th n:foreach="$columns as $column" n:attr="class => array(grid-filter-form, $control->isSpecificFilterActive($column->name) ? 'control-group info')">
 			{if $column->hasFilter()}
-				{$control['gridForm'][$control->name]['filter'][$column->name]->getControl()}
+				{$control['gridForm'][$control->name]['filter'][$column->name]->getControl()->addClass('form-control input-sm')}
 			{/if}
 		</th>
 		<th class="grid-filter-form">
@@ -76,12 +76,12 @@
 		<td n:if="count($subGrids)" colspan="count($subGrids)" class="grid-row-cell grid-edited-cell"></td>
 		<td n:foreach="$columns as $column" class="grid-row-cell grid-data-cell grid-edited-cell">
 			{if $column->editable}
-				{$control['gridForm'][$control->name]['rowForm'][$column->name]->getControl()}
+				{$control['gridForm'][$control->name]['rowForm'][$column->name]->getControl()->addClass('form-control input-sm')}
 			{/if}
 		</td>
 		<td class="grid-row-cell grid-edited-cell">
 			{? $control['gridForm'][$control->name]['rowForm']['send']->setAttribute('class', 'btn btn-success btn-sm')}
-			{$control['gridForm'][$control->name]['rowForm']['send']->getControl()}
+			{$control['gridForm'][$control->name]['rowForm']['send']->getControl()->addClass('form-control input-sm')}
 			<a class="grid-rowForm-cancel grid-ajax btn btn-sm btn-danger" n:href="this" title="Zrušit editaci"><span class="glyphicon glyphicon-remove"></span></a>
 		</td>
 	</tr>
@@ -94,7 +94,7 @@
 				</td>
 				<td n:foreach="$columns as $column" n:attr="class => array(grid-row-cell, grid-data-cell, $control->isEditable() && $control->activeRowForm == $row[$primaryKey] ? 'grid-edited-cell'), style => $column->hasCellRenderer() ? $column->getCellRenderer($row)">
 					{if $control->isEditable() && $column->editable && $control->activeRowForm == $row[$primaryKey]}
-						{$control['gridForm'][$control->name]['rowForm'][$column->name]->getControl()}
+						{$control['gridForm'][$control->name]['rowForm'][$column->name]->getControl()->addClass('form-control input-sm')}
 					{else}
 						{$column->prepareValue($row)}
 					{/if}
@@ -132,13 +132,13 @@
 			<span n:if="$control->hasActionForm()">
 				{? $control['gridForm'][$control->name]['action']['send']->setAttribute('class', 'btn btn-primary btn-sm')}
 				{$control['gridForm'][$control->name]['action']['action_name']->label}
-				{$control['gridForm'][$control->name]['action']['action_name']->getControl()}
+				{$control['gridForm'][$control->name]['action']['action_name']->getControl()->addClass('form-control input-sm')}
 				{$control['gridForm'][$control->name]['action']['send']->getControl()}
 			</span>
 			<span n:if="$paginate" class="pull-right">
 				{? $control['gridForm'][$control->name]['perPage']['send']->setAttribute('class', 'btn btn-primary btn-sm grid-perpagesubmit')}
 				{$control['gridForm'][$control->name]['perPage']['perPage']->label}
-				{$control['gridForm'][$control->name]['perPage']['perPage']->getControl()}
+				{$control['gridForm'][$control->name]['perPage']['perPage']->getControl()->addClass('form-control input-sm')}
 				{$control['gridForm'][$control->name]['perPage']['send']->getControl()}
 			</span>
 		</td>

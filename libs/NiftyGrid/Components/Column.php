@@ -298,7 +298,7 @@ class Column extends \Nette\Application\UI\PresenterComponent
 		if($this->editable){
 			throw new NiftyGrid\DuplicateEditableColumnException("Column $this->name is already editable.");
 		}
-		$this->parent['gridForm'][$this->parent->name]['rowForm']->addText($this->name, NULL)->getControlPrototype()->addClass("grid-datepicker")->addClass("grid-editable");
+		$this->parent['gridForm'][$this->parent->name]['rowForm']->addText($this->name, NULL)->getControlPrototype()->addClass("grid-editable datepicker");
 
 		$this->editable = TRUE;
 
@@ -383,7 +383,7 @@ class Column extends \Nette\Application\UI\PresenterComponent
 	 */
 	public function setDateFilter()
 	{
-		$this->parent['gridForm'][$this->parent->name]['filter']->addText($this->name, $this->label.":")->getControlPrototype()->class("grid-datepicker");
+		$this->parent['gridForm'][$this->parent->name]['filter']->addText($this->name, $this->label.":")->getControlPrototype()->addClass("datepicker");
 		$this->filterType = FilterCondition::DATE;
 
 		return $this;
