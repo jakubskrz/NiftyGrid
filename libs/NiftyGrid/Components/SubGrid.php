@@ -246,10 +246,10 @@ class SubGrid extends \Nette\Application\UI\PresenterComponent
 		$el = \Nette\Utils\Html::el("a")
 			->href($this->getLink($row))
 			->addClass($this->getClass($row))
-			->addClass('btn btn-small')
+			->addClass('btn btn-default btn-sm')
 			->setTitle($this->getLabel($row));
 
-		$icon = \Nette\Utils\Html::el('i')->setClass($this->getIcon($row));
+		$icon = \Nette\Utils\Html::el('span')->setClass($this->getIcon($row));
 		$el->add($icon);
 
 		if($this->ajax){

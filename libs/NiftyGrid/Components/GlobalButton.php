@@ -110,12 +110,12 @@ class GlobalButton extends \Nette\Application\UI\PresenterComponent
 		$el = Html::el("a")
 			->href($this->getLink())
 			->setClass($this->class)
-			->addClass("btn btn-mini")
+			->addClass("btn btn-default btn-xs")
 			->setTitle($this->label)
 			->setStyle('margin-right: 5px;');
 
 		if(!empty($this->icon)){
-			$icon = \Nette\Utils\Html::el('i')->setClass($this->icon);
+			$icon = \Nette\Utils\Html::el('span')->setClass($this->icon);
 			$el->add($icon);
 		}
 

@@ -255,13 +255,13 @@ class Button extends \Nette\Application\UI\PresenterComponent
 
 		$el = Html::el("a")
 			->href($this->getLink($row))
-			->addClass("grid-button btn btn-small")
+			->addClass("grid-button btn btn-default")
 			->addClass($this->getClass($row))
 			->setTitle($this->getLabel($row))
 			->setTarget($this->getTarget($row));
 
 		if(!empty($this->icon)){
-			$icon = Html::el('i')->setClass($this->getIcon($row));
+			$icon = Html::el('span')->setClass($this->getIcon($row));
 			$el->add($icon);
 		}
 

@@ -321,7 +321,7 @@ abstract class Grid extends \Nette\Application\UI\Control
 				return $row[$primaryKey] == $self->activeSubGridId ? "btn-warning" : "btn-success";
 			});
 			$subGrid->setIcon(function($row) use ($self, $primaryKey){
-				return $row[$primaryKey] == $self->activeSubGridId ? "icon-minus" : "icon-plus";
+				return $row[$primaryKey] == $self->activeSubGridId ? "glyphicon glyphicon-minus" : "glyphicon glyphicon-plus";
 			});
 			$subGrid->setLink(function($row) use ($self, $name, $primaryKey){
 				$link = $row[$primaryKey] == $self->activeSubGridId ? array("activeSubGridId" => NULL, "activeSubGridName" => NULL) : array("activeSubGridId" => $row[$primaryKey], "activeSubGridName" => $name);
@@ -330,7 +330,7 @@ abstract class Grid extends \Nette\Application\UI\Control
 		}
 		else{
 			$subGrid->setClass("btn-success")
-				->setIcon('icon-plus')
+				->setIcon('glyphicon glyphicon-plus')
 				->setLink(function($row) use ($self, $name, $primaryKey){
 					return $self->link("this", array("activeSubGridId" => $row[$primaryKey], "activeSubGridName" => $name));
 				});
@@ -588,11 +588,11 @@ abstract class Grid extends \Nette\Application\UI\Control
 			return $this->dataSource->filterData($filters);
 		}
 		catch(UnknownColumnException $e){
-			$this->flashMessage($e->getMessage(), "alert-error");
+			$this->flashMessage($e->getMessage(), "alert-danger");
 			$this->redirect("this", array("filter" => NULL));
 		}
 		catch(UnknownFilterException $e){
-			$this->flashMessage($e->getMessage(), "alert-error");
+			$this->flashMessage($e->getMessage(), "alert-danger");
 			$this->redirect("this", array("filter" => NULL));
 		}
 	}
@@ -615,7 +615,7 @@ abstract class Grid extends \Nette\Application\UI\Control
 			}
 		}
 		catch(InvalidOrderException $e){
-			$this->flashMessage($e->getMessage(), "alert-error");
+			$this->flashMessage($e->getMessage(), "alert-danger");
 			$this->redirect("this", array("order" => NULL));
 		}
 	}
@@ -864,9 +864,9 @@ abstract class Grid extends \Nette\Application\UI\Control
 		}
 		catch(NoRowSelectedException $e){
 			if($subGrid){
-				$this[$gridName]->flashMessage("Nebyl vybrán žádný záznam.","alert-error");
+				$this[$gridName]->flashMessage("Nebyl vybrán žádný záznam.","alert-danger");
 			}else{
-				$this->flashMessage("Nebyl vybrán žádný záznam.","alert-error");
+				$this->flashMessage("Nebyl vybrán žádný záznam.","alert-danger");
 			}
 			$this->redirect("this");
 		}
