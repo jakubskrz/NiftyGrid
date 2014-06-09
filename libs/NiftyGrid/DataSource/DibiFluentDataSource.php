@@ -142,6 +142,12 @@ class DibiFluentDataSource extends Nette\Object implements IDataSource
 
 
 			// Operator
+			/*
+			 * If using PostgreSQL, use ILIKE operator for case insensitive search
+			 * @see http://www.postgresql.org/docs/9.3/static/functions-matching.html
+			 */
+			$pom = $this->fluent->getConnection()->getDriver()->class === 'DibiPostgreDriver' ? str_replace('LIKE', 'ILIKE', $filter['cond']) : $filter['cond'];
+			$cond[] = trim(strtoupper(str_replace('?', '', $pom)));
 			$cond[] = trim(strtoupper(str_replace('?', '', $filter['cond'])));
 
 
