@@ -148,7 +148,6 @@ class DibiFluentDataSource extends Nette\Object implements IDataSource
 			 */
 			$pom = $this->fluent->getConnection()->getDriver()->class === 'DibiPostgreDriver' ? str_replace('LIKE', 'ILIKE', $filter['cond']) : $filter['cond'];
 			$cond[] = trim(strtoupper(str_replace('?', '', $pom)));
-			$cond[] = trim(strtoupper(str_replace('?', '', $filter['cond'])));
 
 
 			// Value
