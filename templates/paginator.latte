@@ -22,7 +22,7 @@
 			{else}
 			<li class="disabled"><span>&lt;</span></li>
 		{/if}
-		<li class="active"><span class="grid-current" data-lastpage="{$paginator->getLastPage()}">{$paginator->getPage()}</span></li>
+		<li class="active"><span class="grid-current" data-lastpage="{$paginator->getLastPage()}">{$paginator->getPage()}&nbsp;/&nbsp;{$paginator->getLastPage()}</span></li>
 		{if $paginator->getPage() + 1 <= $paginator->getLastPage()}
 			<li><a href="{link this, 'page' => $paginator->getPage() + 1}" class="grid-ajax">&gt;</a></li>
 			{else}
