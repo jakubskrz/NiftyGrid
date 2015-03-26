@@ -740,7 +740,8 @@ abstract class Grid extends \Nette\Application\UI\Control
 		$form->addContainer($this->name);
 
 		$form[$this->name]->addContainer("rowForm");
-		$form[$this->name]['rowForm']->addSubmit("send","Uložit");
+		$form[$this->name]['rowForm']->addSubmit("send","Uložit")
+				->setValidationScope(FALSE);
 		$form[$this->name]['rowForm']['send']->getControlPrototype()->addClass("grid-editable");
 
 		$form[$this->name]->addContainer("filter");
