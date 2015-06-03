@@ -369,7 +369,9 @@ abstract class Grid extends \Nette\Application\UI\Control
 	protected function setDataSource(DataSource\IDataSource $dataSource)
 	{
 		$this->dataSource = $dataSource;
-		//$this->primaryKey = $this->dataSource->getPrimaryKey();
+		if($this->primaryKey==NULL){
+                    $this->primaryKey = $this->dataSource->getPrimaryKey();
+                }
 	}
 
 	/**
