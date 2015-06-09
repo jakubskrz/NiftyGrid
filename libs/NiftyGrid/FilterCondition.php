@@ -295,8 +295,8 @@ class FilterCondition extends \Nette\Object
 			"datatype" => self::DATE,
 			"cond" => " = ",
 			"value" => $value,
-		//	"columnFunction" => "DATE",
-		//	"valueFunction" => "DATE"
+			"columnFunction" => "DATE",
+			"valueFunction" => "DATE"
 		);
 	}
 
@@ -312,8 +312,8 @@ class FilterCondition extends \Nette\Object
 			"datatype" => self::DATE,
 			"cond" => " > ",
 			"value" => $value,
-		//	"columnFunction" => "DATE",
-		//	"valueFunction" => "DATE"
+			"columnFunction" => "DATE",
+			"valueFunction" => "DATE"
 		);
 	}
 
@@ -329,8 +329,8 @@ class FilterCondition extends \Nette\Object
 			"datatype" => self::DATE,
 			"cond" => " >= ",
 			"value" => $value,
-		//	"columnFunction" => "DATE",
-		//	"valueFunction" => "DATE"
+			"columnFunction" => "DATE",
+			"valueFunction" => "DATE"
 		);
 	}
 
@@ -347,8 +347,8 @@ class FilterCondition extends \Nette\Object
 			"datatype" => self::DATE,
 			"cond" => " < ",
 			"value" => $value,
-		//	"columnFunction" => "DATE",
-		//	"valueFunction" => "DATE"
+			"columnFunction" => "DATE",
+			"valueFunction" => "DATE"
 		);
 	}
 
@@ -364,8 +364,8 @@ class FilterCondition extends \Nette\Object
 			"datatype" => self::DATE,
 			"cond" => " <= ",
 			"value" => $value,
-		//	"columnFunction" => "DATE",
-		//	"valueFunction" => "DATE"
+			"columnFunction" => "DATE",
+			"valueFunction" => "DATE"
 		);
 	}
 
@@ -381,8 +381,8 @@ class FilterCondition extends \Nette\Object
 			"datatype" => self::DATE,
 			"cond" => " <> ",
 			"value" => $value,
-		//	"columnFunction" => "DATE",
-		//	"valueFunction" => "DATE"
+			"columnFunction" => "DATE",
+			"valueFunction" => "DATE"
 		);
 	}
 }
