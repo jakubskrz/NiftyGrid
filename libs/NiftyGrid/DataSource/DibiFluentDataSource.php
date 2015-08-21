@@ -74,30 +74,8 @@ class DibiFluentDataSource extends Nette\Object implements IDataSource
 
 	public function getCount($column = '*')
 	{
-		// @see http://forum.dibiphp.com/cs/792-velky-problem-s-dibidatasource-a-mysql
-
 		$fluent = clone $this->fluent;
-		$fluent->removeClause('SELECT')->removeClause('ORDER BY');
-
-		$modifiers = \DibiFluent::$modifiers;
-		\DibiFluent::$modifiers['SELECT'] = '%sql';
-		$fluent->select(array('COUNT(%n) AS [count]', $column));
-		\DibiFluent::$modifiers = $modifiers;
-
-		if (strpos((string) $fluent, 'GROUP BY') === FALSE) {
-			return $fluent->fetchSingle();
-		}
-
-		try {
-			return $fluent->execute()->count();
-		} catch (\DibiNotSupportedException $e) {}
-
-		$count = 0;
-		foreach ($fluent as $row) {
-			$count += 1;
-		}
-
-		return $count;
+		return $fluent->count();
 	}
 
 
