@@ -106,7 +106,7 @@
 						<a class="grid-rowForm-cancel grid-ajax btn btn-sm btn-danger" n:href="this" title="Zrušit editaci"><span class="glyphicon glyphicon-remove"></span></a>
 						{$control['gridForm'][$control->name]['rowForm'][$primaryKey]->getControl()}
 					{else}
-						<div class="btn-group btn-group-sm">
+						<div class="btn-group btn-group-sm" style="min-width: {34 * count($buttons)}px;">
 							{foreach $buttons as $button}
 								{control $button $row}
 							{/foreach}
