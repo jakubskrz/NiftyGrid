@@ -222,7 +222,6 @@ abstract class Grid extends \Nette\Application\UI\Control
 	 * @param null|int $truncate
 	 * @return Components\Column
 	 * @throws DuplicateColumnException
-	 * @return \Nifty\Grid\Column
 	 */
 	protected function addColumn($name, $label = NULL, $width = NULL, $truncate = NULL)
 	{

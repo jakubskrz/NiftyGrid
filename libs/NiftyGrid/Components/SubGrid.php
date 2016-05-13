@@ -121,7 +121,7 @@ class SubGrid extends \Nette\Application\UI\PresenterComponent
 
 	/**
 	 * @param callback|string $cellStyle
-	 * @return \Nifty\Grid\SubGrid
+	 * @return SubGrid
 	 */
 	public function setCellStyle($cellStyle)
 	{
