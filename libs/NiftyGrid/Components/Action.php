@@ -12,7 +12,7 @@ namespace NiftyGrid\Components;
 use Nette;
 use NiftyGrid;
 
-class Action extends \Nette\Application\UI\PresenterComponent
+class Action extends \Nette\Application\UI\Component
 {
 	/** @var string */
 	public $name;
@@ -110,7 +110,7 @@ class Action extends \Nette\Application\UI\PresenterComponent
 		}
 
 		if(!empty($this->dialog)){
-			$option->addData("grid-confirm", $this->dialog);
+			$option->setAttribute("data-grid-confirm", $this->dialog);
 		}
 
 		return $option;

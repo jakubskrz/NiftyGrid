@@ -13,7 +13,7 @@ use Nette;
 use NiftyGrid,
 	NiftyGrid\Grid;
 
-class SubGrid extends \Nette\Application\UI\PresenterComponent
+class SubGrid extends \Nette\Application\UI\Component
 {
 	/** @var string */
 	public $name;
@@ -250,7 +250,7 @@ class SubGrid extends \Nette\Application\UI\PresenterComponent
 			->setTitle($this->getLabel($row));
 
 		$icon = \Nette\Utils\Html::el('span')->setClass($this->getIcon($row));
-		$el->add($icon);
+		$el->addHtml($icon);
 
 		if($this->ajax){
 			$el->addClass("grid-ajax");

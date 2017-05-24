@@ -12,7 +12,7 @@ namespace NiftyGrid\Components;
 use Nette\Utils\Html,
 	NiftyGrid\Grid; // For constant only
 
-class GlobalButton extends \Nette\Application\UI\PresenterComponent
+class GlobalButton extends \Nette\Application\UI\Component
 {
 	/** @var string */
 	private $label;
@@ -116,11 +116,11 @@ class GlobalButton extends \Nette\Application\UI\PresenterComponent
 
 		if(!empty($this->icon)){
 			$icon = \Nette\Utils\Html::el('span')->setClass($this->icon);
-			$el->add($icon);
+			$el->addHtml($icon);
 		}
 
 		if(!empty($this->text)){
-			$el->add(' '.$this->text);
+			$el->addText(' '.$this->text);
 		}
 
 		if($this->getName() == Grid::ADD_ROW) {

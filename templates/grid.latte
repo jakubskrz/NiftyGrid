@@ -11,7 +11,7 @@
 *}
 {snippet}
 {if !$control->isSubGrid}
-	{? $control['gridForm']->getElementPrototype()->class = 'grid-gridForm form-inline'}
+	{php $control['gridForm']->getElementPrototype()->class = 'grid-gridForm form-inline'}
 	{$control['gridForm']->render('begin')}
 {/if}
 <table class="grid-upper table" n:attr="style => $control->width ? 'width: '.$control->width.';'">
@@ -64,7 +64,7 @@
 			{/if}
 		</th>
 		<th class="grid-filter-form">
-			{? $control['gridForm'][$control->name]['filter']['send']->setAttribute('class', 'btn btn-primary btn-sm')}
+			{php $control['gridForm'][$control->name]['filter']['send']->setAttribute('class', 'btn btn-primary btn-sm')}
 			{$control['gridForm'][$control->name]['filter']['send']->getControl()}
 			<a n:if="$control->hasActiveFilter()" n:href="this, filter => NULL, paginator-page => NULL" title="Zrušit filtr" class="btn btn-sm btn-danger grid-filter-reset grid-ajax"><span class="glyphicon glyphicon-remove"></span></a>
 		</th>
@@ -80,7 +80,7 @@
 			{/if}
 		</td>
 		<td class="grid-row-cell grid-edited-cell">
-			{? $control['gridForm'][$control->name]['rowForm']['send']->setAttribute('class', 'btn btn-success btn-sm')}
+			{php $control['gridForm'][$control->name]['rowForm']['send']->setAttribute('class', 'btn btn-success btn-sm')}
 			{$control['gridForm'][$control->name]['rowForm']['send']->getControl()->addClass('form-control input-sm')}
 			<a class="grid-rowForm-cancel grid-ajax btn btn-sm btn-danger" n:href="this" title="Zrušit editaci"><span class="glyphicon glyphicon-remove"></span></a>
 		</td>
@@ -101,7 +101,7 @@
 				</td>
 				<td n:if="$control->hasButtons() || $control->hasFilterForm()" n:attr="class => array(grid-row-cell, grid-buttons, $control->isEditable() && $control->activeRowForm == $row[$primaryKey] ? 'grid-edited-cell')">
 					{if $control->activeRowForm == $row[$primaryKey] && $control->isEditable()}
-						{? $control['gridForm'][$control->name]['rowForm']['send']->setAttribute('class', 'btn btn-success btn-sm')}
+						{php $control['gridForm'][$control->name]['rowForm']['send']->setAttribute('class', 'btn btn-success btn-sm')}
 						{$control['gridForm'][$control->name]['rowForm']['send']->getControl()}
 						<a class="grid-rowForm-cancel grid-ajax btn btn-sm btn-danger" n:href="this" title="Zrušit editaci"><span class="glyphicon glyphicon-remove"></span></a>
 						{$control['gridForm'][$control->name]['rowForm'][$primaryKey]->getControl()}
@@ -130,13 +130,13 @@
 	<tr class="grid-side-bordered">
 		<td colspan="{$colsCount}" class="grid-bottom">
 			<span n:if="$control->hasActionForm()">
-				{? $control['gridForm'][$control->name]['action']['send']->setAttribute('class', 'btn btn-primary btn-sm')}
+				{php $control['gridForm'][$control->name]['action']['send']->setAttribute('class', 'btn btn-primary btn-sm')}
 				{$control['gridForm'][$control->name]['action']['action_name']->label}
 				{$control['gridForm'][$control->name]['action']['action_name']->getControl()->addClass('form-control input-sm')}
 				{$control['gridForm'][$control->name]['action']['send']->getControl()}
 			</span>
 			<span n:if="$paginate" class="pull-right">
-				{? $control['gridForm'][$control->name]['perPage']['send']->setAttribute('class', 'btn btn-primary btn-sm grid-perpagesubmit')}
+				{php $control['gridForm'][$control->name]['perPage']['send']->setAttribute('class', 'btn btn-primary btn-sm grid-perpagesubmit')}
 				{$control['gridForm'][$control->name]['perPage']['perPage']->label}
 				{$control['gridForm'][$control->name]['perPage']['perPage']->getControl()->addClass('form-control input-sm')}
 				{$control['gridForm'][$control->name]['perPage']['send']->getControl()}

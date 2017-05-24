@@ -753,14 +753,14 @@ abstract class Grid extends \Nette\Application\UI\Control
 		$form[$this->name]['action']->addSubmit("send","Potvrdit")
 			->setValidationScope(FALSE)
 			->getControlPrototype()
-			->addData("select", $form[$this->name]["action"]["action_name"]->getControl()->name);
+			->setAttribute("data-select", $form[$this->name]["action"]["action_name"]->getControl()->name);
 
 		$form[$this->name]->addContainer('perPage');
 		$form[$this->name]['perPage']->addSelect("perPage","Záznamů na stranu:", $this->perPageValues)
 			->getControlPrototype()
 			->addClass("grid-changeperpage")
-			->addData("gridname", $this->getGridPath())
-			->addData("link", $this->link("changePerPage!"));
+			->setAttribute("data-gridname", $this->getGridPath())
+			->setAttribute("data-link", $this->link("changePerPage!"));
 		$form[$this->name]['perPage']->addSubmit("send","Ok")
 			->setValidationScope(FALSE)
 			->getControlPrototype()
